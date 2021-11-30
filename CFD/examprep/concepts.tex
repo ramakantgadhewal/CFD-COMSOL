@@ -1,0 +1,226 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+%\usepackage{float}
+\usepackage{physics}
+\let\vec\mathbf
+\let\epsilon\varepsilon
+
+
+
+\title{concepts.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Vorticity equation}
+is givene by 
+\begin{equation}
+	\rho \frac{D\vec \omega}{Dt} = \rho(\vec\omega \cdot \nabla)\vec V + \mu \nabla ^{2}\vec \omega
+\end{equation}
+
+You get it by taking the curl of every term in NS (study group exercise). \textit{Note: no pressure term, since P is from potential and $\curl\grad \Phi = 0$}
+
+
+
+
+\section{Enstrophy}
+Defined as  
+\begin{equation}
+	Z\equiv \int_{Vol}\frac{1}{2}\omega^{2}dr
+\end{equation}
+compare this to 
+\textbf{kinetic energy}
+\begin{equation}
+	KE \equiv \int_{Vol}\frac{1}{2}u^{2}dr.
+\end{equation}
+
+They fill about the same purpose, but enstrophy is for turbulent flow. 
+
+Kinetic energy is distributed arounf injection scale, enstrophy is distributed around \textit{Kolmogorov scale}.
+
+\begin{equation}
+	\frac{D}{Dt}KE = -2vZ
+\end{equation}
+so high enstrophy gives fast decay of kinetic energy. 
+
+
+\section{Energy cascade}
+Larger eddies break up to smaller and smaller eddies and then to heat. Large eddies carry most of the energy. They interact with the mean flow and extract energy from it. Small eddies, assumed isotropic, dissipate energy to heat.
+
+Most important cascade mechanism is Vortex stretching and tilting. 
+
+Note: in 2D, KE tends to end up in large-scale structures. for example storms on jupiter. 
+
+%From Kolmogorov
+At large scales we have 
+\begin{equation}
+	\begin{split}
+	Re = \frac{UL}{v}\\
+	\epsilon \approx \frac{U^{3}}{L} = \frac{v^{3}Re^{3}}{L^{4}}
+	\end{split}
+\end{equation}
+Now, assuming the system is in quasi-equilibrium during energy cascade, we have
+\begin{equation}
+	\epsilon_{\text{large}}\approx\epsilon_{\text{small}}\\\Leftarrow
+	\frac{v^{3}Re^{3}}{L^{4}}\approx \frac{v^{3}}{L_{K}^{4}}
+\end{equation}
+
+
+
+
+\section{Kolmogorov}
+Kolmogorov’s hypothesis of local isotropy:
+At sufficiently high Re, the small scale turbulent motions are statistically isotropic. 
+
+First similarity hypothesis: 
+In every turbulent flow, at sufficiently high Re, the description of the small scale motions have a universal form that is uniquely determined by the energy dissipation rate and viscosity. 
+
+Second similarity hypothesis: 
+In every turbulent flow, at sufficiently high Re, the description of the intermediate scale motions have a universal form that is uniquely determined by the energy dissipation rate only.
+
+From 1st similarity hypothesis, we get the Kolmogorov micro scales
+\begin{equation}
+	\begin{split}
+		\text{Time: }T_{K} = \left(\frac{\nu}{\epsilon}\right)^{1/2}\\
+		\text{Velocity: }U_{K} = \left(\epsilon\nu\right)^{1/4}\\
+		\text{Length: }L_{K} = \left(\frac{\nu^{3}}{\epsilon}\right)^{1/4}\\
+	\end{split}
+\end{equation}
+
+
+
+
+\section{RANS}
+Reynolds Averaged Navier Stokes.
+
+Notation- time, spatial, ensemble averages:
+\begin{equation}
+	\begin{split}
+	\langle f\rangle(\vec r) = \lim_{T\leftarrow\infty}\left[\frac{1}{T}\int_{t}^{t+T}f(\bar{ \vec r},t )\dd{t}   \right]\\
+	\langle f\rangle(t) = \lim_{V\leftarrow\infty}\left[\frac{1}{V}\iiint f(\bar{r},t )\dd{V}   \right]\\
+	\langle f\rangle(\vec r,t) = \lim_{N\leftarrow\infty}\left[\frac{1}{N}\sum_{n=1}^{\infty}f_{n}({ \vec r},t )\dd{t}   \right]\\
+	\end{split}
+\end{equation}
+\textbf{Reynolds decomposition}
+\begin{equation}
+	\begin{split}
+	u_{i} = U_{i}+ u_{i}'\\
+	p = P + p'\\
+	\tau_{ij} = T_{ij} + \tau_{ij}'
+	\end{split}
+\end{equation}
+where $u,p,\tau$ are instantaneous values, $U,P,T$ are mean values, and $u',p',\tau'$ are fluctuation values. 
+
+Important average properties: 
+\begin{equation}
+	\begin{split}
+	\langle u_{i}'\rangle= 0,\langle U_{i}\rangle = U_{i}\\
+	\langle U_{i}u_{j}'\rangle=0, \langle u_{i}'u_{j}'\rangle\neq 0
+	\end{split}
+\end{equation}
+
+
+\subsection{Averaging process}
+starting from NS
+\begin{equation}
+	\rho \pdv{u_{i}}{t} + \rho\left(u_{j}\pdv {u_{i}}{x_{j}}\right) = -\pdv{p}{x_{i}}+ \mu \pdv{x_{j}}\pdv{u_{i}}{x_{j}} + f_{i}
+\end{equation}
+and taking average (time average?) we get 
+\begin{equation}
+	\begin{split}
+	\langle LHS\rangle = \rho\pdv{U_{i}}{t} + \rho U_{j}\pdv{U_{i}}{x_{j}} + \rho \pdv {x_{j}}\langle u_{i}'u_{j}'\rangle\\
+	\langle RHS\rangle = -\pdv{P}{x_{i}} + \mu \pdv{x_{j}}\pdv{U_{i}}{x_{j}} + \langle f_{i}\rangle.
+	\end{split}
+\end{equation}
+
+So then , the averga of the momentum equations become 
+\begin{equation}
+	\begin{split}
+		\rho \left(\pdv{U_{i}}{t}+U_{j}\pdv{U_{i}}{x_{j}}\right) &= -\pdv{P}{x_{i}} + \pdv{T_{ij}}{x_{j}} + \pdv{R_{ij}}{x_{j}} + \langle f_{i}\rangle \\&= \pdv{x_{j}}\left(-p\delta_{ij} + T_{ij} + R_{ij}\right) + \langle f_{i}\rangle
+	\end{split}
+\end{equation}
+
+with 
+\begin{equation}
+	T_{ij} = \mu \left(\pdv{U_{i}}{x_{j}} + \pdv{U_{j}}{x_{i}}\right)
+\end{equation}
+\begin{equation}
+	R_{ij} \equiv -\langle \rho u_{i}'u_{j}'\rangle.
+\end{equation}
+Note here that the Reynolds stress $R_{ij}$ depends on the fluctuating velocities for which we have no governing equations. therefore, \textbf{The system is not closed.}
+
+\subsection{Closure using Boussinesq hypothesis}
+Assume simple relationship between Reynolds stress and velocity gradients: 
+\begin{equation}
+	R_{ij} \equiv -\langle\rho u_{i}'u_{j}'\rangle = \mu \left(\pdv{U_{i}}{x_{j}} +\pdv{U_{j}}{x_{i}} \right)- \frac{2}{3}\rho k \delta_{ij}
+\end{equation}
+with 
+\begin{equation}
+	k \equiv \frac{1}{2}\langle u_{i}'u_{j}'\rangle.
+\end{equation}
+We add the last term to agree with pure definitions which give 
+\begin{equation}
+	R_{ii} = -2\rho k.
+\end{equation}
+
+
+\section{Standard k-$\epsilon$ model}
+
+\textbf{Important assumptions}
+\begin{itemize}
+	\item turbulent fluctuations are locally isotropic
+	\item production and dissipation are locally equal (not true near walls)
+\end{itemize}
+
+
+\textbf{Model k-equation:}
+\begin{equation}
+	\pdv{k}{t} = U_{i}\pdv{k}{x_{j}} = \frac{\mu_{t}}{\rho}S^{2}-\epsilon + \pdv{x_{j}}\left[\frac{1}{\rho}\left(\mu + \frac{\mu _{y}}{\sigma_{k}}\right)\pdv{k}{x_{j}}\right]
+\end{equation}
+
+\textbf{Model $\epsilon$ equation}
+\begin{equation}
+	\pdv{\epsilon}{t} + U_{i}\pdv{\epsilon}{x_{j}} = C_{\epsilon 1}\frac{\mu_{t}}{\rho} \frac{\epsilon}{k}S^{2}- C_{\epsilon 2} \frac{\epsilon^{2}}{k} + \pdv{x_{j}}\left[\frac{1}{\rho}\left(\mu + \frac{\mu_{t}}{\sigma_\epsilon}\right)\pdv{\epsilon}{x_{j}}\right]
+\end{equation}
+
+
+Defining \textbf{k-production}
+\begin{equation}
+	P_{k} \equiv \frac{R_{ij}}{\rho}\pdv{U_{i}}{x_{j}} = \frac{\mu_{t}}{\rho}S^{2}
+\end{equation}
+
+\textbf{k-diffusion}
+\begin{equation}
+	D_{k} \equiv \pdv{x_{j}}\left[\frac{1}{\rho}\left(\mu + \frac{\mu_{t}}{\sigma_{k}}\right)\pdv{k}{x_{j}}\right]
+\end{equation}
+
+\textbf{Dissipation}
+\begin{equation}
+	\epsilon \equiv \frac{\mu}{\rho} \left\langle\pdv{u_{i}'}{x_{j}}\pdv{u_{i}'}{x_{j}}\right\rangle
+\end{equation}
+
+\textbf{$\epsilon$-diffusion}
+\begin{equation}
+	D_{\epsilon}\equiv \pdv{x_{j}}\left[\frac{1}{\rho}\left(\mu + \frac{\mu_{t}}{\sigma_{\epsilon}}\right)\pdv{\epsilon}{x_{j}}\right]
+\end{equation}
+
+
+gives the \textbf{easy to memorize model: }
+\begin{equation}
+	\boxed{
+	\frac{Dk}{Dt} = P_{k} - \epsilon + D_{k}
+	}
+\end{equation}
+\begin{equation}
+	\boxed{
+	\frac{D\epsilon}{Dt} = \frac{\epsilon}{k}\left(C_{\epsilon 1}P_{k} - C_{\epsilon 2}\epsilon\right) + D_{\epsilon}
+	}
+\end{equation}
+\textit{Note: $\epsilon/k$ to match the units to k-eq then just constants.}
+
+
+\end{document}
