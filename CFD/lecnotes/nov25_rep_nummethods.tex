@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{nov25 rep nummethods.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+There are some older methods that use the vorticity equation rather than NS
+then the fluid velocity is represented bu 3 prts:	
+	free stream contribution
+	solid body contribution
+	vortex-vortex contribution
+They noted that few particles gave a much better result. The problem was the center singularity in the potential vortex solution that they used. Solution: use vortex woth center core. (remove the singularity) Then it worked.
+
+\section{Finite element method:} 
+the method used in comsol (not that common in CFD software, ususlly FVM)
+Rectangles at border, because vertical resolution is moreimportant than horizontal (vel gradient larger vertically)
+
+FEM recipe 
+\begin{equation}
+	\nabla\cdot(k\nabla T) = g(T,x)
+\end{equation}
+
+Degrees of Freedom 
+nrnodes*nrvariables
+nonodes = elementfactor*nrelements
+
+so it depends on geometry, dimensions, order of approx., etc
+
+
+
+
+
+
+\end{document}
