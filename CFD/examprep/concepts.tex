@@ -17,7 +17,7 @@
 \begin{document}
 \maketitle
 \section{Vorticity equation}
-is givene by 
+is given by 
 \begin{equation}
 	\rho \frac{D\vec \omega}{Dt} = \rho(\vec\omega \cdot \nabla)\vec V + \mu \nabla ^{2}\vec \omega
 \end{equation}
@@ -40,7 +40,7 @@ compare this to
 
 They fill about the same purpose, but enstrophy is for turbulent flow. 
 
-Kinetic energy is distributed arounf injection scale, enstrophy is distributed around \textit{Kolmogorov scale}.
+Kinetic energy is distributed around injection scale, enstrophy is distributed around \textit{Kolmogorov scale}.
 
 \begin{equation}
 	\frac{D}{Dt}KE = -2vZ
@@ -49,7 +49,7 @@ so high enstrophy gives fast decay of kinetic energy.
 
 
 \section{Energy cascade}
-Larger eddies break up to smaller and smaller eddies and then to heat. Large eddies carry most of the energy. They interact with the mean flow and extract energy from it. Small eddies, assumed isotropic, dissipate energy to heat.
+Larger eddies break up to smaller and smaller eddies and then to heat. Large eddies carry most of the energy. They interact with the mean flow and extract energy from it. Small eddies, \textit{assumed isotropic}, dissipate energy to heat.
 
 Most important cascade mechanism is Vortex stretching and tilting. 
 
@@ -65,8 +65,10 @@ At large scales we have
 \end{equation}
 Now, assuming the system is in quasi-equilibrium during energy cascade, we have
 \begin{equation}
-	\epsilon_{\text{large}}\approx\epsilon_{\text{small}}\\\Leftarrow
-	\frac{v^{3}Re^{3}}{L^{4}}\approx \frac{v^{3}}{L_{K}^{4}}
+	\begin{split}
+		\epsilon_{\text{large}}&\approx\epsilon_{\text{small}}\\\Rightarrow
+	\frac{v^{3}Re^{3}}{L^{4}}&\approx \frac{v^{3}}{L_{K}^{4}}
+	\end{split}
 \end{equation}
 
 
@@ -169,6 +171,8 @@ We add the last term to agree with pure definitions which give
 
 
 \section{Standard k-$\epsilon$ model}
+
+
 
 \textbf{Important assumptions}
 \begin{itemize}
