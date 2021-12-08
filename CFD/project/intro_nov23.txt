@@ -1,0 +1,51 @@
+Dsesign of small-scale wind tunnel
+
+ emulate real-life project
+
+will be used for design of real wind tunnel next sprign
+
+rectangular cross-section, venturi tube (ish)
+stationary study, lowers comp time
+
+
+report grading
+focus on quality of report, he is not that familiar with the subject (though he has done the course)
+eric does the grading to keep it anonymous and to give krister more free time to help.
+
+
+point system, based on criteria on canvas
+reduce points, feedback, room for imptrovement, should be motivated. 
+
+bonus system: 
+	reward: goor results, ambition, well written, etc
+	injector simulation
+	one grad(e) available (20%)
+
+start with 80 points, reduce for errors, 16 more bonus points. 80 is 100%. voluntary 3D sim will heavily infuence bonus points
+
+changes: 
+3D injector
+more focus on creativity and good sim
+imitate real life
+less ambiguity (grading critera)
+
+result and diskussion (they force is to separate result&discussion)
+majority of points
+separate section
+
+preparation for master thesis
+will be high level
+
+grading criteria
+equal weight betwewen project and exam
+if failed on first try or turned in late, only pass is possible grade
+mxa 15 pages
+
+common room for improvement sections
+text should cover the results, the figures are just for support
+references: IEEE system, use the references more than you think. eg "DNS-data from [7] blabla"
+
+
+
+
+
