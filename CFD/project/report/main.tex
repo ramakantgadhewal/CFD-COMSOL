@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\let\vec\mathbf
+\title{main.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+
+\section{Theory}
+The Navier-Stokes equations are the fundamental equations of fluid mechanics. Using standard Einstein summation convention in cartesian coordinates, they are given as 
+\begin{equation}
+	\rho \pdv{u_{i}}{t} + \rho\left(u_{j}\pdv {u_{i}}{x_{j}}\right) = -\pdv{p}{x_{i}}+ \mu \pdv{x_{j}}\pdv{u_{i}}{x_{j}} + f_{i}, 
+\end{equation}
+with $u$ being the velocity, $x$ is position, $p$ is pressure, and $f$ is external forces on the body. 
+
+
+So then , the averga of the momentum equations become 
+\begin{equation}
+	\begin{split}
+		\rho \left(\pdv{U_{i}}{t}+U_{j}\pdv{U_{i}}{x_{j}}\right) &= -\pdv{P}{x_{i}} + \pdv{T_{ij}}{x_{j}} + \pdv{R_{ij}}{x_{j}} + \langle f_{i}\rangle \\&= \pdv{x_{j}}\left(-p\delta_{ij} + T_{ij} + R_{ij}\right) + \langle f_{i}\rangle
+	\end{split}
+\end{equation}
+
+with 
+\begin{equation}
+	T_{ij} = \mu \left(\pdv{U_{i}}{x_{j}} + \pdv{U_{j}}{x_{i}}\right)
+\end{equation}
+\begin{equation}
+	R_{ij} \equiv -\langle \rho u_{i}'u_{j}'\rangle.
+\end{equation}
+
+
+
+
+
+
+
+\end{document}
