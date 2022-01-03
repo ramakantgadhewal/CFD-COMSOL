@@ -27,9 +27,9 @@ h=1*(Di/2-Do/2);
 % for the coefficients a,b,c,d in terms of L and xi, and that g=h, f=e=0.
 % The system looks like Asys*Coeff=B:
 Asys=[30*xi^4 20*xi^3 12*xi^2 6*xi;
-L^6 L^5 L^4 L^3;
-6*L^5 5*L^4 4*L^3 3*L^2;
-30*L^4 20*L^3 12*L^2 6*L];
+    L^6 L^5 L^4 L^3;
+    6*L^5 5*L^4 4*L^3 3*L^2;
+    30*L^4 20*L^3 12*L^2 6*L];
 B=[0 -h 0 0]';
 Coeff=linsolve(Asys,B);
 a=Coeff(1); b=Coeff(2); c=Coeff(3); d=Coeff(4); e=0; f=0;g=h;
